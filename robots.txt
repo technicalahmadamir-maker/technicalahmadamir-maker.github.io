@@ -1,9 +1,9 @@
 # robots.txt - Ahmad Amir Portfolio
-# https://AAPKI-SITE.netlify.app
+# https://ahmadamirpotfolio.netlify.app
 
 # Allow all search engines
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://AAPKI-SITE.netlify.app/sitemap.xml
+Sitemap: https://ahmadamirpotfolio.netlify.app/sitemap.xml
