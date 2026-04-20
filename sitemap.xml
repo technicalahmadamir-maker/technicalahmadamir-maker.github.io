@@ -3,7 +3,7 @@
 
   <!-- Home Page -->
   <url>
-    <loc>https://ahmadamirpotfolio.netlify.app/</loc>
+    <loc>https://technicalahmadamir-maker.github.io/</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
@@ -11,7 +11,7 @@
 
   <!-- About Section -->
   <url>
-    <loc>https://ahmadamirpotfolio.netlify.app/#about</loc>
+    <loc>https://technicalahmadamir-maker.github.io/#about</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -19,7 +19,7 @@
 
   <!-- Skills Section -->
   <url>
-    <loc>https://ahmadamirpotfolio.netlify.app/#skills</loc>
+    <loc>https://technicalahmadamir-maker.github.io/#skills</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -27,7 +27,7 @@
 
   <!-- Projects Section -->
   <url>
-    <loc>https://ahmadamirpotfolio.netlify.app/#projects</loc>
+    <loc>https://technicalahmadamir-maker.github.io/#projects</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -35,7 +35,7 @@
 
   <!-- Contact Section -->
   <url>
-    <loc>https://ahmadamirpotfolio.netlify.app/#contact</loc>
+    <loc>hhttps://technicalahmadamir-maker.github.io/#contact</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
