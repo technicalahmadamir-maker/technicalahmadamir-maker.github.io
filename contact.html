@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact – Ahmad Amir | SEO Expert & Web Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --border: #1e1e2e;
+      --accent: #3bd354;
+      --accent2: #2ecc71;
+      --text: #e8e8f0;
+      --muted: #6b6b80;
+      --card: #13131c;
+      --success: #00d464;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 5%;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--accent); }
+
+    .hire-btn {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.55rem 1.4rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: opacity 0.3s;
+    }
+    .hire-btn:hover { opacity: 0.85; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 10rem 5% 4rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 80px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(59,211,84,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(59,211,84,0.12);
+      border: 1px solid rgba(59,211,84,0.3);
+      color: var(--accent);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      animation: fadeUp 0.6s ease 0.1s both;
+    }
+
+    h1 span { color: var(--accent); }
+
+    .hero-sub {
+      max-width: 560px;
+      margin: 1.2rem auto 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      animation: fadeUp 0.6s ease 0.2s both;
+    }
+
+    /* ── CONTACT CHANNELS ── */
+    .channels {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 5%;
+      animation: fadeUp 0.6s ease 0.3s both;
+    }
+
+    .channel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .channel:hover {
+      border-color: rgba(59,211,84,0.5);
+      transform: translateY(-4px);
+    }
+
+    .ch-icon { font-size: 1.8rem; }
+    .ch-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); }
+    .ch-value { font-weight: 600; font-size: 0.9rem; }
+    .ch-arrow { color: var(--muted); font-size: 1rem; margin-top: auto; padding-top: 0.5rem; }
+    .channel:hover .ch-arrow { color: var(--accent); }
+
+    /* ── MAIN LAYOUT ── */
+    .main {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 5% 6rem;
+      animation: fadeUp 0.6s ease 0.4s both;
+    }
+
+    /* FORM */
+    .form-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem;
+    }
+
+    .form-wrap h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.4rem;
+    }
+
+    .form-wrap .sub { color: var(--muted); font-size: 0.85rem; margin-bottom: 2rem; }
+
+    .field { margin-bottom: 1.2rem; }
+    .field label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.8rem 1rem;
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.3s;
+      resize: none;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .field select option { background: var(--bg); }
+
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .submit-btn {
+      width: 100%;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 0.9rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.3s, transform 0.2s;
+      margin-top: 0.5rem;
+      letter-spacing: 0.3px;
+    }
+
+    .submit-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .submit-btn:active { transform: translateY(0); }
+
+    /* SUCCESS */
+    .success-msg {
+      display: none;
+      background: rgba(0,212,100,0.1);
+      border: 1px solid rgba(0,212,100,0.3);
+      border-radius: 10px;
+      padding: 1rem;
+      color: var(--success);
+      font-size: 0.88rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    /* SIDE INFO */
+    .side-info { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .info-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+
+    .info-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.3px;
+    }
+
+    .info-item {
+      display: flex; align-items: flex-start; gap: 0.8rem;
+      margin-bottom: 1rem;
+      font-size: 0.86rem;
+    }
+    .info-item:last-child { margin-bottom: 0; }
+
+    .info-item .icon {
+      width: 32px; height: 32px; min-width: 32px;
+      background: rgba(59,211,84,0.12);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    .info-item .lbl { font-size: 0.72rem; color: var(--accent); font-weight: 700; letter-spacing: 0.5px; }
+    .info-item .val { color: var(--text); margin-top: 0.15rem; font-weight: 500; }
+
+    /* Social */
+    .socials { display: flex; flex-direction: column; gap: 0.6rem; }
+    .social-link {
+      display: flex; align-items: center; gap: 0.8rem;
+      padding: 0.7rem 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .social-link:hover { border-color: rgba(59,211,84,0.4); color: var(--text); }
+    .social-link .sicon { font-size: 1rem; width: 20px; text-align: center; }
+    .social-link .sarrow { margin-left: auto; opacity: 0.4; }
+
+    /* Response time badge */
+    .resp-badge {
+      display: flex; align-items: center; gap: 0.6rem;
+      background: rgba(0,212,100,0.08);
+      border: 1px solid rgba(0,212,100,0.2);
+      border-radius: 10px;
+      padding: 0.8rem 1rem;
+      font-size: 0.8rem;
+      color: #00c45a;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .channels { grid-template-columns: 1fr 1fr; }
+      .main { grid-template-columns: 1fr; }
+      .field-row { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .channels { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="logo">&lt;AA/&gt;</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="hire-btn">Hire Me</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">04 — Contact</div>
+    <h1>Let's Work<br/><span>Together</span></h1>
+    <p class="hero-sub">
+      Have a project in mind or want to boost your search rankings? Let's connect and make it happen.
+    </p>
+  </section>
+
+  <!-- CHANNELS -->
+  <div class="channels">
+    <a href="https://wa.me/923234173593" target="_blank" class="channel">
+      <div class="ch-icon">💬</div>
+      <div class="ch-label">WhatsApp</div>
+      <div class="ch-value">+92 323 4173593</div>
+      <div class="ch-arrow">→</div>
+    </a>
+    <a href="mailto:technicalahmadamir@gmail.com" class="channel">
+      <div class="ch-icon">📧</div>
+      <div class="ch-label">Email</div>
+      <div class="ch-value">technicalahmadamir@gmail.com</div>
+      <div class="ch-arrow">→</div>
+    </a>
+    <a href="https://www.linkedin.com/in/ahmad-amir-98060a404/" target="_blank" class="channel">
+      <div class="ch-icon">💼</div>
+      <div class="ch-label">LinkedIn</div>
+      <div class="ch-value">Ahmad Amir</div>
+      <div class="ch-arrow">→</div>
+    </a>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- FORM -->
+    <div class="form-wrap">
+      <h2>Send a Message</h2>
+      <p class="sub">Fill out the form and I'll get back to you within 24 hours.</p>
+
+      <div class="field-row">
+        <div class="field">
+          <label>First Name</label>
+          <input type="text" id="fname" placeholder="John" />
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input type="text" id="lname" placeholder="Doe" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Email Address</label>
+        <input type="email" id="email" placeholder="john@example.com" />
+      </div>
+
+      <div class="field">
+        <label>Service Needed</label>
+        <select id="service">
+          <option value="">Select a service...</option>
+          <option>SEO Optimization</option>
+          <option>WordPress Development</option>
+          <option>Custom Website</option>
+          <option>Local SEO</option>
+          <option>Technical SEO Audit</option>
+          <option>Link Building</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Budget Range</label>
+        <select id="budget">
+          <option value="">Select your budget...</option>
+          <option>Under $200</option>
+          <option>$200 – $500</option>
+          <option>$500 – $1,000</option>
+          <option>$1,000 – $2,500</option>
+          <option>$2,500+</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Your Message</label>
+        <textarea id="message" rows="5" placeholder="Tell me about your project, goals, or what you need help with..."></textarea>
+      </div>
+
+      <button class="submit-btn" onclick="handleSubmit()">Send Message →</button>
+
+      <div class="success-msg" id="successMsg">
+        ✅ Message sent! I'll get back to you within 24 hours.
+      </div>
+    </div>
+
+    <!-- SIDE INFO -->
+    <div class="side-info">
+
+      <div class="info-card">
+        <h3>Contact Details</h3>
+        <div class="info-item">
+          <div class="icon">📧</div>
+          <div>
+            <div class="lbl">Email</div>
+            <div class="val">technicalahmadamir@gmail.com</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="icon">💬</div>
+          <div>
+            <div class="lbl">WhatsApp</div>
+            <div class="val">+92 323 4173593</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="icon">🌍</div>
+          <div>
+            <div class="lbl">Location</div>
+            <div class="val">Pakistan (Remote Worldwide)</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="icon">⏰</div>
+          <div>
+            <div class="lbl">Working Hours</div>
+            <div class="val">Mon–Sat, 9AM–9PM PKT</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="resp-badge">
+        <span>⚡</span>
+        <span>Average response time: <strong>under 2 hours</strong></span>
+      </div>
+
+      <div class="info-card">
+        <h3>Find Me On</h3>
+        <div class="socials">
+          <a href="https://www.facebook.com/profile.php?id=61576772686306" target="_blank" class="social-link">
+            <span class="sicon">📘</span> Facebook — Ahmad Amir
+            <span class="sarrow">→</span>
+          </a>
+          <a href="https://www.instagram.com/officialahmadamir/" target="_blank" class="social-link">
+            <span class="sicon">📷</span> Instagram — @officialahmadamir
+            <span class="sarrow">→</span>
+          </a>
+          <a href="https://www.linkedin.com/in/ahmad-amir-98060a404/" target="_blank" class="social-link">
+            <span class="sicon">💼</span> LinkedIn — Ahmad Amir
+            <span class="sarrow">→</span>
+          </a>
+          <a href="https://wa.me/923234173593" target="_blank" class="social-link">
+            <span class="sicon">💬</span> WhatsApp — +92 323 4173593
+            <span class="sarrow">→</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="index.html">&lt;AA/&gt;</a>
+    <span>© 2025 Ahmad Amir. All rights reserved.</span>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    function handleSubmit() {
+      const name = document.getElementById('fname').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      if (!name || !email || !message) {
+        alert('Please fill in Name, Email, and Message fields.');
+        return;
+      }
+
+      // Build WhatsApp message
+      const lname = document.getElementById('lname').value;
+      const service = document.getElementById('service').value;
+      const budget = document.getElementById('budget').value;
+
+      const text = `Hello Ahmad! My name is ${name} ${lname}.\n\nService: ${service || 'Not specified'}\nBudget: ${budget || 'Not specified'}\n\nMessage: ${message}\n\nEmail: ${email}`;
+      const waUrl = `https://wa.me/923234173593?text=${encodeURIComponent(text)}`;
+
+      window.open(waUrl, '_blank');
+      document.getElementById('successMsg').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
