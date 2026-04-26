@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About – Ahmad Amir | SEO Expert & Web Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --border: #1e1e2e;
+      --accent: #3bd354;
+      --accent2: #2ecc71;
+      --text: #e8e8f0;
+      --muted: #6b6b80;
+      --card: #13131c;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 5%;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s;
+      letter-spacing: 0.3px;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-links a.active { color: var(--accent); }
+
+    .hire-btn {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.55rem 1.4rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: opacity 0.3s;
+    }
+    .hire-btn:hover { opacity: 0.85; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 10rem 5% 5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 80px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(59,211,84,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(59,211,84,0.12);
+      border: 1px solid rgba(59,211,84,0.3);
+      color: var(--accent);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      animation: fadeUp 0.6s ease 0.1s both;
+    }
+
+    h1 span { color: var(--accent); }
+
+    .hero-sub {
+      max-width: 600px;
+      color: var(--muted);
+      margin-top: 1.2rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      animation: fadeUp 0.6s ease 0.2s both;
+    }
+
+    /* ── AVATAR SECTION ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.8fr;
+      gap: 4rem;
+      padding: 4rem 5%;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .avatar-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      animation: fadeUp 0.7s ease 0.3s both;
+    }
+
+    .avatar {
+      width: 220px; height: 220px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-size: 3.5rem;
+      color: #fff;
+      font-weight: 800;
+      box-shadow: 0 20px 60px rgba(59,211,84,0.3);
+      position: relative;
+    }
+
+    .avatar::after {
+      content: '';
+      position: absolute; inset: -3px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      z-index: -1;
+      opacity: 0.4;
+      filter: blur(10px);
+    }
+
+    .available-pill {
+      display: flex; align-items: center; gap: 0.5rem;
+      background: rgba(0,212,100,0.1);
+      border: 1px solid rgba(0,212,100,0.25);
+      color: #00d464;
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .dot {
+      width: 8px; height: 8px;
+      background: #00d464;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    .stats-mini {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0.8rem; width: 100%;
+    }
+
+    .stat-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .stat-box .num {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .stat-box .lbl { font-size: 0.72rem; color: var(--muted); margin-top: 0.2rem; }
+
+    /* ── CONTENT ── */
+    .about-content { animation: fadeUp 0.7s ease 0.4s both; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+
+    .about-content h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.2rem;
+      letter-spacing: -1px;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-content p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+      font-size: 0.97rem;
+    }
+
+    .about-content p strong { color: var(--text); }
+
+    /* Timeline */
+    .timeline { margin-top: 2.5rem; }
+    .timeline h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.3px;
+    }
+
+    .tl-item {
+      display: flex; gap: 1rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: 18px; top: 36px;
+      width: 1px; height: calc(100% + 0.5rem);
+      background: var(--border);
+    }
+    .tl-item:last-child::before { display: none; }
+
+    .tl-dot {
+      width: 36px; height: 36px; min-width: 36px;
+      border-radius: 50%;
+      background: rgba(59,211,84,0.15);
+      border: 1px solid rgba(59,211,84,0.4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    .tl-body { padding-top: 0.3rem; }
+    .tl-body .yr { font-size: 0.72rem; color: var(--accent); font-weight: 700; letter-spacing: 1px; }
+    .tl-body .title { font-weight: 600; margin: 0.2rem 0 0.3rem; font-size: 0.95rem; }
+    .tl-body .desc { color: var(--muted); font-size: 0.85rem; line-height: 1.6; }
+
+    /* Values */
+    .values {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      padding: 2rem 5% 5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .val-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: border-color 0.3s, transform 0.3s;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .val-card:hover {
+      border-color: rgba(59,211,84,0.4);
+      transform: translateY(-4px);
+    }
+
+    .val-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+    .val-card h4 { font-weight: 700; margin-bottom: 0.5rem; font-size: 0.95rem; }
+    .val-card p { color: var(--muted); font-size: 0.82rem; line-height: 1.6; }
+
+    /* CTA */
+    .cta-bar {
+      background: linear-gradient(135deg, rgba(59,211,84,0.15), rgba(0,212,255,0.08));
+      border: 1px solid rgba(59,211,84,0.2);
+      border-radius: 20px;
+      margin: 0 5% 5rem;
+      padding: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .cta-bar h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: -0.5px;
+    }
+
+    .cta-bar p { color: var(--muted); margin-top: 0.4rem; font-size: 0.9rem; }
+
+    .cta-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.75rem 1.8rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: opacity 0.3s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      padding: 0.75rem 1.8rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 1px solid var(--border);
+      transition: border-color 0.3s;
+    }
+    .btn-ghost:hover { border-color: var(--accent); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .values { grid-template-columns: 1fr 1fr; }
+      .cta-bar { flex-direction: column; text-align: center; }
+      .cta-btns { justify-content: center; }
+      .nav-links { display: none; }
+      .stats-mini { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .values { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="logo">&lt;AA/&gt;</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="hire-btn">Hire Me</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">01 — About Me</div>
+    <h1>The Story Behind<br/><span>Ahmad Amir</span></h1>
+    <p class="hero-sub">
+      SEO Expert & Web Developer from Pakistan — turning search traffic into real business results for 3+ years.
+    </p>
+  </section>
+
+  <!-- ABOUT GRID -->
+  <div class="about-grid">
+
+    <!-- LEFT: Avatar -->
+    <div class="avatar-wrap">
+      <div class="avatar">AA</div>
+      <div class="available-pill"><div class="dot"></div> Available for Projects</div>
+      <div class="stats-mini">
+        <div class="stat-box"><div class="num">3+</div><div class="lbl">Years Exp.</div></div>
+        <div class="stat-box"><div class="num">50+</div><div class="lbl">Projects Done</div></div>
+        <div class="stat-box"><div class="num">100%</div><div class="lbl">Client Happy</div></div>
+        <div class="stat-box"><div class="num">300%</div><div class="lbl">Avg. Traffic Boost</div></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Content -->
+    <div class="about-content">
+      <div class="section-label">Who I Am</div>
+      <h2>Turning Rankings<br/>into Revenue</h2>
+
+      <p>
+        I'm <strong>Ahmad Amir</strong>, a passionate <strong>SEO Expert and Web Developer</strong> based in Pakistan.
+        I help businesses dominate search engines and build fast, stunning websites that convert visitors into customers.
+      </p>
+      <p>
+        With expertise in <strong>technical SEO, on-page optimization, WordPress development, and custom coding</strong>,
+        I deliver complete digital solutions — from strategy to execution. My approach is data-driven and results-focused.
+      </p>
+      <p>
+        Whether you're a startup looking to build your online presence or an established business aiming to dominate
+        your niche, I craft solutions that deliver measurable results and long-term growth.
+      </p>
+
+      <!-- Timeline -->
+      <div class="timeline">
+        <h3>My Journey</h3>
+
+        <div class="tl-item">
+          <div class="tl-dot">🚀</div>
+          <div class="tl-body">
+            <div class="yr">2022</div>
+            <div class="title">Started Freelancing</div>
+            <div class="desc">Began offering SEO and web development services on freelance platforms, building first client base.</div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot">📈</div>
+          <div class="tl-body">
+            <div class="yr">2023</div>
+            <div class="title">50+ Projects Completed</div>
+            <div class="desc">Delivered 50+ successful projects including e-commerce SEO, WordPress sites, and custom landing pages.</div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot">🌐</div>
+          <div class="tl-body">
+            <div class="yr">2024</div>
+            <div class="title">Full Digital Agency Services</div>
+            <div class="desc">Expanded to offer complete digital solutions: technical SEO, content strategy, web dev, and analytics.</div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot">⭐</div>
+          <div class="tl-body">
+            <div class="yr">2025</div>
+            <div class="title">100% Client Satisfaction</div>
+            <div class="desc">Maintained a perfect client satisfaction rate with proven results — 300%+ traffic growth for top clients.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALUES -->
+  <div class="values">
+    <div class="val-card" style="animation-delay:0.1s">
+      <div class="val-icon">🎯</div>
+      <h4>Results-Driven</h4>
+      <p>Every strategy I build is focused on measurable outcomes — rankings, traffic, leads, and revenue.</p>
+    </div>
+    <div class="val-card" style="animation-delay:0.2s">
+      <div class="val-icon">⚡</div>
+      <h4>Speed & Quality</h4>
+      <p>Fast delivery without compromising quality. I value your time and always meet deadlines.</p>
+    </div>
+    <div class="val-card" style="animation-delay:0.3s">
+      <div class="val-icon">🔍</div>
+      <h4>Data-Driven</h4>
+      <p>I rely on real data, analytics, and research — not guesses — to build strategies that actually work.</p>
+    </div>
+    <div class="val-card" style="animation-delay:0.4s">
+      <div class="val-icon">🤝</div>
+      <h4>Transparent</h4>
+      <p>Clear communication, honest reporting, and full transparency on every project I take on.</p>
+    </div>
+    <div class="val-card" style="animation-delay:0.5s">
+      <div class="val-icon">🌱</div>
+      <h4>Long-Term Growth</h4>
+      <p>I focus on sustainable SEO strategies that keep working — not short-term tricks that fade.</p>
+    </div>
+    <div class="val-card" style="animation-delay:0.6s">
+      <div class="val-icon">💡</div>
+      <h4>Always Learning</h4>
+      <p>SEO and web dev change fast. I stay updated with the latest trends, algorithms, and tools.</p>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-bar">
+    <div>
+      <h3>Ready to Work Together?</h3>
+      <p>Let's build something great — your growth starts with a single conversation.</p>
+    </div>
+    <div class="cta-btns">
+      <a href="contact.html" class="btn-primary">Get In Touch →</a>
+      <a href="index.html#projects" class="btn-ghost">View My Work</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="index.html">&lt;AA/&gt;</a>
+    <span>© 2025 Ahmad Amir. All rights reserved.</span>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>
